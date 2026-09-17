@@ -3,9 +3,539 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cafélyr</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #f4f4f4;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #D4A373;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        .info-section {
+            background: rgba(20, 20, 20, 0.85);
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid #442C1D;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .info-box {
+            flex: 1 1 200px;
+        }
+
+        .info-box h4 {
+            color: #D4A373;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .info-box p {
+            color: #ccc;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .card-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-left: 5px solid #D4A373;
+            padding-left: 10px;
+            color: #fff;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.85);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid #442C1D;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .image-container {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            color: #FDFBF7;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .card-content p {
+            color: #ccc;
+            font-size: 0.75rem;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .price {
+            color: #D4A373;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .card-btn {
+            background: #D4A373;
+            color: #111;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .card-btn:hover {
+            background: #FDFBF7;
+        }
+
+        .ingredients-details-section {
+            background: rgba(20, 20, 20, 0.9);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid #442C1D;
+            margin-bottom: 40px;
+        }
+
+        .ingredients-details-section h2 {
+            font-size: 1.3rem;
+            color: #D4A373;
+            margin-bottom: 15px;
+            border-left: 5px solid #D4A373;
+            padding-left: 10px;
+        }
+
+        .ingredients-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .ingredient-item {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #553822;
+        }
+
+        .ingredient-item h4 {
+            color: #FDFBF7;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .ingredient-item p {
+            color: #ccc;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        #drawer-toggle {
+            display: none;
+        }
+
+        .feedback-toggle-btn {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #D4A373;
+            color: #111;
+            border: none;
+            padding: 12px 10px;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: -2px 0 8px rgba(0,0,0,0.4);
+            z-index: 1000;
+            transition: background 0.3s ease;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .feedback-toggle-btn:hover {
+            background: #FDFBF7;
+        }
+
+        .feedback-drawer {
+            position: fixed;
+            right: -380px;
+            top: 0;
+            width: 350px;
+            height: 100%;
+            background: rgba(15, 15, 15, 0.98);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.6);
+            border-left: 1px solid #442C1D;
+            z-index: 1001;
+            transition: right 0.4s ease-in-out;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #drawer-toggle:checked ~ .feedback-drawer {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #442C1D;
+            padding-bottom: 10px;
+        }
+
+        .drawer-header h2 {
+            font-size: 1.1rem;
+            color: #D4A373;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #D4A373;
+        }
+
+        .drawer-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 4px;
+            color: #fdfbf7;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background: rgba(10, 10, 10, 0.9);
+            color: #fff;
+            font-size: 0.85rem;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #D4A373;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 70px;
+        }
+
+        .submit-btn {
+            background: #D4A373;
+            color: #111;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #FDFBF7;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <input type="checkbox" id="drawer-toggle">
+
+    <header>
+        <h1>Cafélyr</h1>
+        <p>Explore our bestseller menu below!</p>
+    </header>
+
+    <div class="info-section">
+        <div class="info-box">
+            <h4>Location</h4>
+            <p>143 I Miss You Street, Brgy. Nangungulila, Lucena City</p>
+        </div>
+        <div class="info-box">
+            <h4>Operating Hours</h4>
+            <p>Mon - Sun: 7:00 AM – 10:00 PM</p>
+        </div>
+        <div class="info-box">
+            <h4>Contact Info</h4>
+            <p>Phone: +639123456789<br>Email: lyrradazal@gmail.com</p>
+        </div>
+        <div class="info-box">
+            <h4>Social Media</h4>
+            <p>IG & FB: @Cafélyr</p>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="card-section">
+            <h2 class="section-title">Café Specialties</h2>
+            <div class="card-grid">
+                
+                <div class="card">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/736x/0e/c1/0c/0ec10cee8bae54d2657722b7ad0ae948.jpg" alt="Espresso">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Classic Espresso</h3>
+                            <p>Bold and pure coffee flavor.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₱75.00</span>
+                            <button class="card-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/736x/4d/e4/0c/4de40c8bbd7ca5c9a76587faf386d444.jpg" alt="Cappuccino">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Cappuccino</h3>
+                            <p>Perfect blend of coffee and milk.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₱125.00</span>
+                            <button class="card-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/1200x/a3/bc/46/a3bc46c4db937cb5e2633ff06f723503.jpg" alt="Caramel Macchiato">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Caramel Macchiato</h3>
+                            <p>Sweet with rich caramel drizzle.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₱180.00</span>
+                            <button class="card-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/736x/30/98/b3/3098b37993867ed5b37bd686d463ca4b.jpg" alt="Croissant">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Butter Croissant</h3>
+                            <p>Soft, flaky, and freshly baked.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₱75.00</span>
+                            <button class="card-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-container">
+                        <img src="https://i.pinimg.com/736x/2d/29/ef/2d29efb91d3a1d9ffe4ede0f53717416.jpg" alt="Chocolate Cake">
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <h3>Choco Fudge Cake</h3>
+                            <p>Rich and moist chocolate treat.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₱150.00</span>
+                            <button class="card-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="ingredients-details-section">
+            <h2>Coffee & Pastry Ingredients Details</h2>
+            <div class="ingredients-list">
+                <div class="ingredient-item">
+                    <h4>Classic Espresso</h4>
+                    <p><strong>Ingredients:</strong> 100% Arabica Coffee Beans, Hot Water.</p>
+                </div>
+                <div class="ingredient-item">
+                    <h4>Cappuccino</h4>
+                    <p><strong>Ingredients:</strong> Fresh Espresso, Steamed Milk, Rich Milk Foam.</p>
+                </div>
+                <div class="ingredient-item">
+                    <h4>Caramel Macchiato</h4>
+                    <p><strong>Ingredients:</strong> Espresso, Steamed Milk, Vanilla Syrup, Caramel Drizzle.</p>
+                </div>
+                <div class="ingredient-item">
+                    <h4>Butter Croissant</h4>
+                    <p><strong>Ingredients:</strong> Wheat Flour, Real French Butter, Yeast, Fresh Milk, Sugar, Salt.</p>
+                </div>
+                <div class="ingredient-item">
+                    <h4>Choco Fudge Cake</h4>
+                    <p><strong>Ingredients:</strong> Premium Cocoa Powder, Flour, Farm Eggs, Sugar, Butter, Dark Chocolate Fudge.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <label for="drawer-toggle" class="feedback-toggle-btn">◀ Feedback</label>
+
+    <div class="feedback-drawer">
+        <div class="drawer-header">
+            <h2>Leave Your Feedback</h2>
+            <label for="drawer-toggle" class="close-btn">&times;</label>
+        </div>
+        <form class="drawer-form" onsubmit="event.preventDefault(); alert('Thank you for your feedback!');">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="">Select category</option>
+                    <option value="coffee">Coffee Taste</option>
+                    <option value="service">Café Service</option>
+                    <option value="ambiance">Ambiance</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Rating (1-5)</label>
+                <input type="number" id="rating" min="1" max="5" placeholder="5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comments or Suggestions</label>
+                <textarea id="comments" placeholder="Type your message here..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+    </div>
+
 </body>
 </html>
