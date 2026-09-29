@@ -3,208 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafélyr</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Simple JS Practice</title>
 </head>
 <body>
 
-    <input type="checkbox" id="drawer-toggle">
+    <h1>JavaScript Practice: Variables, Conditions, and Functions</h1>
+    
+    <p>Please enter your name and age below:</p>
 
-    <header>
-        <h1>Cafélyr</h1>
-        <p>Explore our bestseller menu below!</p>
-    </header>
-
-    <div class="info-section">
-        <div class="info-box">
-            <h4>Location</h4>
-            <p>143 I Miss You Street, Brgy. Nangungulila, Lucena City</p>
-        </div>
-        <div class="info-box">
-            <h4>Operating Hours</h4>
-            <p>Mon - Sun: 7:00 AM – 10:00 PM</p>
-        </div>
-        <div class="info-box">
-            <h4>Contact Info</h4>
-            <p>Phone: +639123456789<br>Email: lyrradazal@gmail.com</p>
-        </div>
-        <div class="info-box">
-            <h4>Social Media</h4>
-            <p>IG & FB: @Cafélyr</p>
-        </div>
+    <div>
+        <label for="nameInput">Name: </label>
+        <input type="text" id="nameInput" placeholder="Enter your name">
     </div>
-
-    <div class="container">
-        
-        <div class="card-section">
-            <h2 class="section-title">Café Specialties</h2>
-            <div class="card-grid">
-                
-                <div class="card">
-                    <div class="image-container">
-                        <img src="https://i.pinimg.com/736x/0e/c1/0c/0ec10cee8bae54d2657722b7ad0ae948.jpg" alt="Espresso">
-                    </div>
-                    <div class="card-content">
-                        <div>
-                            <h3>Classic Espresso</h3>
-                            <p>Bold and pure coffee flavor.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="price">₱75.00</span>
-                            <button class="card-btn">Order Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-                        <img src="https://i.pinimg.com/736x/4d/e4/0c/4de40c8bbd7ca5c9a76587faf386d444.jpg" alt="Cappuccino">
-                    </div>
-                    <div class="card-content">
-                        <div>
-                            <h3>Cappuccino</h3>
-                            <p>Perfect blend of coffee and milk.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="price">₱125.00</span>
-                            <button class="card-btn">Order Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-                        <img src="https://i.pinimg.com/1200x/a3/bc/46/a3bc46c4db937cb5e2633ff06f723503.jpg" alt="Caramel Macchiato">
-                    </div>
-                    <div class="card-content">
-                        <div>
-                            <h3>Caramel Macchiato</h3>
-                            <p>Sweet with rich caramel drizzle.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="price">₱180.00</span>
-                            <button class="card-btn">Order Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-                        <img src="https://i.pinimg.com/736x/30/98/b3/3098b37993867ed5b37bd686d463ca4b.jpg" alt="Croissant">
-                    </div>
-                    <div class="card-content">
-                        <div>
-                            <h3>Butter Croissant</h3>
-                            <p>Soft, flaky, and freshly baked.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="price">₱75.00</span>
-                            <button class="card-btn">Order Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="image-container">
-                        <img src="https://i.pinimg.com/736x/2d/29/ef/2d29efb91d3a1d9ffe4ede0f53717416.jpg" alt="Chocolate Cake">
-                    </div>
-                    <div class="card-content">
-                        <div>
-                            <h3>Choco Fudge Cake</h3>
-                            <p>Rich and moist chocolate treat.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="price">₱150.00</span>
-                            <button class="card-btn">Order Now</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="ingredients-details-section">
-            <h2>Coffee & Pastry Ingredients Details</h2>
-            <div class="ingredients-list">
-                <div class="ingredient-item">
-                    <h4>Classic Espresso</h4>
-                    <p><strong>Ingredients:</strong> 100% Arabica Coffee Beans, Hot Water.</p>
-                </div>
-                <div class="ingredient-item">
-                    <h4>Cappuccino</h4>
-                    <p><strong>Ingredients:</strong> Fresh Espresso, Steamed Milk, Rich Milk Foam.</p>
-                </div>
-                <div class="ingredient-item">
-                    <h4>Caramel Macchiato</h4>
-                    <p><strong>Ingredients:</strong> Espresso, Steamed Milk, Vanilla Syrup, Caramel Drizzle.</p>
-                </div>
-                <div class="ingredient-item">
-                    <h4>Butter Croissant</h4>
-                    <p><strong>Ingredients:</strong> Wheat Flour, Real French Butter, Yeast, Fresh Milk, Sugar, Salt.</p>
-                </div>
-                <div class="ingredient-item">
-                    <h4>Choco Fudge Cake</h4>
-                    <p><strong>Ingredients:</strong> Premium Cocoa Powder, Flour, Farm Eggs, Sugar, Butter, Dark Chocolate Fudge.</p>
-                </div>
-            </div>
-        </div>
-
+    <br>
+    <div>
+        <label for="ageInput">Age: </label>
+        <input type="number" id="ageInput" placeholder="Enter your age">
     </div>
+    <br>
 
-    <label for="drawer-toggle" class="feedback-toggle-btn">◀ Feedback</label>
+    <button onclick="handleUserSubmission()">Submit</button>
 
-    <div class="feedback-drawer">
-        <div class="drawer-header" onsubmit="event.preventDefault(); alert('Thank you for your feedback!');">
-            <h2>Leave Your Feedback</h2>
-            <label for="drawer-toggle" class="close-btn">&times;</label>
-        </div>
-        <form class="drawer-form">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="nameInput" placeholder="Enter your name" required>
-            </div>
+    <br><br>
 
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="emailInput" placeholder="Enter your email" required>
-            </div>
+    <div id="resultContainer"></div>
 
-            <div class="form-group">
-                <label for="category">Category</label>
-                <select id="categoryInput" required>
-                    <option value="">Select category</option>
-                    <option value="coffee">Coffee Taste</option>
-                    <option value="service">Café Service</option>
-                    <option value="ambiance">Ambiance</option>
-                </select>
-            </div>
+    <script>
+        function generateGreeting(name) {
+            return "Hello, " + name + "! Welcome to our page.";
+        }
 
-            <div class="form-group">
-                <label for="rating">Rating (1-5)</label>
-                <input type="number" id="ratingInput" min="1" max="5" placeholder="5" required>
-            </div>
+        function handleUserSubmission() {
+            let name = document.getElementById("nameInput").value.trim();
+            let ageInput = document.getElementById("ageInput").value.trim();
+            let resultDiv = document.getElementById("resultContainer");
 
-            <div class="form-group">
-                <label for="comments">Comments or Suggestions</label>
-                <textarea id="commentsInput" placeholder="Type your message here..."></textarea>
-            </div>
+            if (name === "" || ageInput === "") {
+                resultDiv.innerHTML = "<p>Please fill in both name and age fields.</p>";
+                return;
+            }
 
-            <button type="submit" id="submitBtn">Submit Feedback</button>
+            let age = Number(ageInput);
 
-            <div id="output" class="hidden">
-                <h4>Submission Summary</h4>
-                <p><strong> Output1 Name:</strong> <span id="outputName"></span></p>
-                <p><strong> Output2 Email:</strong> <span id="outputEmail"></span></p>
-                <p><strong> Output3 Category:</strong> <span id="outputCategory"></span></p>
-                <p><strong> Output4 Rating:</strong> <span id="outputRating"></span></p>
-                <p><strong> Output5 Comments:</strong> <span id="outputComments"></span></p>
-            </div>
+            if (isNaN(age) || age < 0) {
+                resultDiv.innerHTML = "<p>Please enter a valid numeric age.</p>";
+                return;
+            }
 
-            <div id="errorMsg"></div>
-        </form>
-    </div>
+            let greetingMessage = generateGreeting(name);
 
-    <script src="script.js"></script>
+            let statusMessage = "";
+            if (age < 18) {
+                statusMessage = "You are a minor.";
+            } else {
+                statusMessage = "You are an adult.";
+            }
+
+            resultDiv.innerHTML = `
+                <h2>Results:</h2>
+                <p><strong>Greeting:</strong> ${greetingMessage}</p>
+                <p><strong>Name entered:</strong> ${name}</p>
+                <p><strong>Age entered:</strong> ${age}</p>
+                <p><strong>Status:</strong> ${statusMessage}</p>
+            `;
+        }
+    </script>
 
 </body>
 </html>
