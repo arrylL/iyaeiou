@@ -3,71 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple JS Practice</title>
+    <title>Cafélyr Kiosk</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>JavaScript Practice: Variables, Conditions, and Functions</h1>
-    
-    <p>Please enter your name and age below:</p>
+    <div id="registrationSection" class="container reg-container">
+        <div class="ingredients-details-section reg-box">
+            <h2 style="color: #D4A373; text-align: center; margin-bottom: 10px;">Cafélyr Registration</h2>
+            <p style="color: #ccc; font-size: 0.85rem; text-align: center; margin-bottom: 20px;">
+                Please fill in your details to access the kiosk.
+            </p>
+            
+            <form id="activity2Form" class="act2-form">
+                <div class="form-group">
+                    <label for="act2FullName">Full Name</label>
+                    <input type="text" id="act2FullName" placeholder="Enter your full name">
+                </div>
 
-    <div>
-        <label for="nameInput">Name: </label>
-        <input type="text" id="nameInput" placeholder="Enter your name">
+                <div class="form-group">
+                    <label for="act2Age">Age</label>
+                    <input type="number" id="act2Age" placeholder="Enter your age" min="1" max="120">
+                </div>
+
+                <div class="form-group">
+                    <label for="act2Email">Email Address</label>
+                    <input type="email" id="act2Email" placeholder="Enter your email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="act2Password">Password</label>
+                    <input type="password" id="act2Password" placeholder="Enter your password">
+                </div>
+
+                <button type="submit" id="act2SubmitBtn">Register & Proceed to Kiosk</button>
+
+                <div id="act2Msg" class="hidden"></div>
+            </form>
+        </div>
     </div>
-    <br>
-    <div>
-        <label for="ageInput">Age: </label>
-        <input type="number" id="ageInput" placeholder="Enter your age">
+
+
+    <!-- SECTION 2: KIOSK MENU INTERFACE -->
+    <div id="kioskSection" class="hidden">
+        <input type="checkbox" id="drawer-toggle">
+
+        <!-- NAVIGATION BAR -->
+        <nav class="kiosk-nav">
+            <div class="nav-brand">Cafélyr</div>
+            <div class="nav-links">
+                <a href="#menuSection" class="nav-link">Menu</a>
+                <a href="#ingredientsSection" class="nav-link">Ingredients</a>
+            </div>
+        </nav>
+
+        <header>
+            <h1>Cafélyr Kiosk</h1>
+            <p>Explore our wide selection of gourmet coffee, artisan pastries, and delicious meals!</p>
+        </header>
+
+        <!-- INFO SECTION -->
+        <div class="info-section">
+            <div class="info-box">
+                <h4>Location</h4>
+                <p>143 I Miss You Street, Brgy. Nangungulila, Lucena City</p>
+            </div>
+            <div class="info-box">
+                <h4>Operating Hours</h4>
+                <p>Mon - Sun: 7:00 AM – 10:00 PM</p>
+            </div>
+            <div class="info-box">
+                <h4>Contact Info</h4>
+                <p>Phone: +639123456789<br>Email: lyrradazal@gmail.com</p>
+            </div>
+            <div class="info-box">
+                <h4>Social Media</h4>
+                <p>IG & FB: @Cafélyr</p>
+            </div>
+        </div>
+
+        <div class="container">
+            
+            <!-- CAFÉ SPECIALTIES SECTION -->
+            <div id="menuSection" class="card-section">
+                <h2 class="section-title">Café Specialties & Menu</h2>
+                <div class="card-grid">
+                    
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/736x/0e/c1/0c/0ec10cee8bae54d2657722b7ad0ae948.jpg" alt="Espresso">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Classic Espresso</h3>
+                                <p>Bold, concentrated shot of pure coffee flavor.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱75.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/736x/4d/e4/0c/4de40c8bbd7ca5c9a76587faf386d444.jpg" alt="Cappuccino">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Cappuccino</h3>
+                                <p>Perfect balance of espresso, steamed milk, and thick foam.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱125.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/1200x/a3/bc/46/a3bc46c4db937cb5e2633ff06f723503.jpg" alt="Caramel Macchiato">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Caramel Macchiato</h3>
+                                <p>Espresso combined with vanilla syrup and caramel drizzle.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱180.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/1200x/48/b9/3d/48b93dd7d619f5f614e3e7e9f8e4fe06.jpg" alt="Cafe Mocha">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Caffè Mocha</h3>
+                                <p>A blend of espresso, rich chocolate syrup, and steamed milk.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱160.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/1200x/45/9a/fb/459afbc3f9000c8001ab06e67549b924.jpg" alt="Matcha Latte">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Matcha Green Tea Latte</h3>
+                                <p>Premium Japanese ceremonial grade matcha with milk.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱170.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/736x/9d/02/8d/9d028da79c04634a1c1888c9d0887e0c.jpg" alt="Spanish Latte">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Spanish Latte</h3>
+                                <p>Rich espresso layered with sweetened condensed milk.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱150.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/736x/30/98/b3/3098b37993867ed5b37bd686d463ca4b.jpg" alt="Croissant">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Butter Croissant</h3>
+                                <p>Soft, flaky, golden-brown pastry baked to perfection.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱75.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/736x/2d/29/ef/2d29efb91d3a1d9ffe4ede0f53717416.jpg" alt="Chocolate Cake">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Choco Fudge Cake</h3>
+                                <p>Moist layers of rich chocolate fudge and premium cocoa.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱150.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="https://i.pinimg.com/736x/c3/2c/5b/c32c5b737eba4acee6604c96d85bf286.jpg" alt="Blueberry Cheesecake">
+                        </div>
+                        <div class="card-content">
+                            <div>
+                                <h3>Blueberry Cheesecake</h3>
+                                <p>Creamy cheesecake topped with sweet blueberry compote.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="price">₱165.00</span>
+                                <button class="card-btn">Order Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- INGREDIENTS DETAILS SECTION -->
+            <div id="ingredientsSection" class="ingredients-details-section">
+                <h2>Coffee, Pastry & Dessert Ingredients Details</h2>
+                <div class="ingredients-list">
+                    <div class="ingredient-item">
+                        <h4>Classic Espresso</h4>
+                        <p><strong>Ingredients:</strong> 100% Arabica Coffee Beans, Purified Hot Water.</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h4>Cappuccino</h4>
+                        <p><strong>Ingredients:</strong> Fresh Espresso Shot, Steamed Fresh Milk, Velvety Milk Foam.</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h4>Caramel Macchiato</h4>
+                        <p><strong>Ingredients:</strong> Espresso, Steamed Milk, Organic Vanilla Syrup, Signature Caramel Drizzle.</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h4>Caffè Mocha</h4>
+                        <p><strong>Ingredients:</strong> Espresso, Dutch-Processed Cocoa Syrup, Steamed Milk, Whipped Cream.</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h4>Matcha Green Tea Latte</h4>
+                        <p><strong>Ingredients:</strong> Ceremonial Grade Green Tea Matcha Powder, Steamed Milk, Simple Syrup.</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h4>Spanish Latte</h4>
+                        <p><strong>Ingredients:</strong> Espresso Shot, Steamed Milk, Sweetened Condensed Milk.</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h4>Butter Croissant</h4>
+                        <p><strong>Ingredients:</strong> Artisan Wheat Flour, Authentic French Butter, Active Yeast, Fresh Milk, Sugar, Pinch of Sea Salt.</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h4>Choco Fudge Cake</h4>
+                        <p><strong>Ingredients:</strong> Premium Dark Cocoa Powder, All-Purpose Flour, Organic Farm Eggs, Cane Sugar, Butter, Chocolate Ganache.</p>
+                    </div>
+                    <div class="ingredient-item">
+                        <h4>Blueberry Cheesecake</h4>
+                        <p><strong>Ingredients:</strong> Cream Cheese, Graham Cracker Crust, Butter, Fresh Blueberries, Lemon Juice, Sugar.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <label for="drawer-toggle" class="feedback-toggle-btn">◀ Account & Feedback</label>
+
+        <!-- SIDEBAR DRAWER -->
+        <div class="feedback-drawer">
+            <div class="drawer-header">
+                <h2>Account & Feedback</h2>
+                <label for="drawer-toggle" class="close-btn">&times;</label>
+            </div>
+
+            <div class="drawer-content-scroll">
+                <!-- ACCOUNT DETAILS SECTION -->
+                <div class="drawer-section">
+                    <h3>My Account Details</h3>
+                    <div class="drawer-account-box">
+                        <p><strong>Name:</strong> <span id="accName">-</span></p>
+                        <p><strong>Age:</strong> <span id="accAge">-</span></p>
+                        <p><strong>Status:</strong> <span id="accStatus">-</span></p>
+                        <p><strong>Email:</strong> <span id="accEmail">-</span></p>
+                        <p><strong>Password:</strong> <span id="accPassword">-</span></p>
+                    </div>
+                </div>
+
+                <hr class="drawer-divider">
+
+                <!-- FEEDBACK FORM SECTION -->
+                <div class="drawer-section">
+                    <h3>Leave Your Feedback</h3>
+                    <form class="drawer-form">
+                        <div class="form-group">
+                            <label for="nameInput">Full Name</label>
+                            <input type="text" id="nameInput" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailInput">Email Address</label>
+                            <input type="email" id="emailInput" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoryInput">Category</label>
+                            <select id="categoryInput" required>
+                                <option value="">Select category</option>
+                                <option value="coffee">Coffee Taste</option>
+                                <option value="service">Café Service</option>
+                                <option value="ambiance">Ambiance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ratingInput">Rating (1-5)</label>
+                            <input type="number" id="ratingInput" min="1" max="5" placeholder="5" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="commentsInput">Comments or Suggestions</label>
+                            <textarea id="commentsInput" placeholder="Type your message here..."></textarea>
+                        </div>
+
+                        <button type="submit" id="submitBtn">Submit Feedback</button>
+
+                        <div id="output" class="hidden">
+                            <h4>Submission Summary</h4>
+                            <p><strong>Name:</strong> <span id="outputName"></span></p>
+                            <p><strong>Email:</strong> <span id="outputEmail"></span></p>
+                            <p><strong>Category:</strong> <span id="outputCategory"></span></p>
+                            <p><strong>Rating:</strong> <span id="outputRating"></span></p>
+                            <p><strong>Comments:</strong> <span id="outputComments"></span></p>
+                        </div>
+
+                        <div id="errorMsg"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
 
-    <button onclick="handleUserSubmission()">Submit</button>
-
-    <br><br>
-
-    <div id="resultContainer"></div>
-
-    <script>
-        function generateGreeting(name) {
-            return "Hello, " + name + "! Welcome to our page.";
-        }
-
-        function handleUserSubmission() {
-            let name = document.getElementById("nameInput").value.trim();
-            let ageInput = document.getElementById("ageInput").value.trim();
-            let resultDiv = document.getElementById("resultContainer");
-
-            if (name === "" || ageInput === "") {
-                resultDiv.innerHTML = "<p>Please fill in both name and age fields.</p>";
-                return;
-            }
-
-            let age = Number(ageInput);
-
-            if (isNaN(age) || age < 0) {
-                resultDiv.innerHTML = "<p>Please enter a valid numeric age.</p>";
-                return;
-            }
-
-            let greetingMessage = generateGreeting(name);
-
-            let statusMessage = "";
-            if (age < 18) {
-                statusMessage = "You are a minor.";
-            } else {
-                statusMessage = "You are an adult.";
-            }
-
-            resultDiv.innerHTML = `
-                <h2>Results:</h2>
-                <p><strong>Greeting:</strong> ${greetingMessage}</p>
-                <p><strong>Name entered:</strong> ${name}</p>
-                <p><strong>Age entered:</strong> ${age}</p>
-                <p><strong>Status:</strong> ${statusMessage}</p>
-            `;
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
